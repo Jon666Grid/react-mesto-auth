@@ -3,7 +3,7 @@ export default function ImagePopup(props) {
    const isOpenPopup = props.card.name && 'popup_is_opened';
 
    return (
-      <div className={`popup popup_type_image ${isOpenPopup}`}>
+      <div className={`popup ${isOpenPopup}`}>
          <div className="popup__container-img">
             <img src={props.card.link}
                alt={props.card.name}

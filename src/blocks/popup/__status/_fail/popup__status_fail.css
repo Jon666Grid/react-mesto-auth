@@ -1,0 +1,9 @@
+.popup__status_fail {
+   background-image: url(../../../../images/noSuccess.svg);
+   background-color: transparent;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   border: none;
+   padding: 0;
+}

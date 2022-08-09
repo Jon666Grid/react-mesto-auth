@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Redirect, Route, Switch, useHistory} from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import ProtectedRoute from './ProtectedRoute';
 import api from '../utils/Api';
@@ -22,7 +22,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -49,10 +49,10 @@ function App() {
       .catch(err => console.log(err));
   }, [])
 
-  function tokenCheck () {
+  function tokenCheck() {
     const jwt = localStorage.getItem('jwt');
     if (!jwt) {
-      return ;
+      return;
     }
     auth
       .getContent(jwt)
@@ -71,9 +71,7 @@ function App() {
     if (isLoggedIn) {
       history.push('/');
     }
-  }, [isLoggedIn]);
-
-  
+  }, [isLoggedIn,history]);
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -89,9 +87,7 @@ function App() {
       setCards((item) => item.filter((c) => c._id !== card._id && c));
       closeAllPopups();
     }).catch(err => console.log(err))
-    .finally(() => {
-      setIsLoading(false);
-    });
+      .finally(() => { setIsLoading(false) });
   }
 
   function handleUpdateUser(data) {
@@ -100,9 +96,7 @@ function App() {
       setCurrentUser(newUser);
       closeAllPopups();
     }).catch(err => console.log(err))
-    .finally(() => {
-      setIsLoading(false);
-    });
+      .finally(() => { setIsLoading(false) });
   }
 
   function handleUpdateAvatar(data) {
@@ -111,9 +105,7 @@ function App() {
       setCurrentUser(newAvatar);
       closeAllPopups();
     }).catch(err => console.log(err))
-    .finally(() => {
-      setIsLoading(false);
-    });
+      .finally(() => { setIsLoading(false) });
   }
 
   function handleAddPlaceSubmit(data) {
@@ -122,9 +114,7 @@ function App() {
       setCards([newCard, ...cards]);
       closeAllPopups();
     }).catch(err => console.log(err))
-    .finally(() => {
-      setIsLoading(false);
-    });
+      .finally(() => { setIsLoading(false) });
   }
 
   function handleEditAvatarClick() {
@@ -152,7 +142,6 @@ function App() {
     setIsInfoTooltipOpen(true);
   };
 
-
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
@@ -162,13 +151,12 @@ function App() {
     setSelectedCard({});
   }
 
-  function onLogin (data) {
+  function onLogin(data) {
     return auth
       .login(data)
       .then((res) => {
         setIsLoggedIn(true);
         localStorage.setItem('jwt', res.token);
-        history.push('/')
       });
   };
 
@@ -185,9 +173,9 @@ function App() {
         setIsSuccessful(false);
         openInfoTooltip();
       });
-    }
+  }
 
-  function handleSignOut () {
+  function handleSignOut() {
     setIsLoggedIn(false);
     localStorage.removeItem('jwt');
     history.push('/sign-in');
@@ -198,10 +186,9 @@ function App() {
       <body className="page">
         <div className="page__container">
 
-          <Header 
-          isLoggedIn={isLoggedIn}
-          email={userInfo} 
-          onSignOut={handleSignOut} />
+          <Header
+            email={userInfo}
+            onSignOut={handleSignOut} />
 
           <Switch>
             <ProtectedRoute
@@ -218,11 +205,11 @@ function App() {
             />
 
             <Route path="/sign-up">
-            <Register onRegister={onRegister} />
+              <Register onRegister={onRegister} />
             </Route>
 
             <Route path="/sign-in">
-            <Login onLogin={onLogin} />
+              <Login onLogin={onLogin} />
             </Route>
             <Route>
               {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
@@ -235,15 +222,15 @@ function App() {
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
             onUpdateUser={handleUpdateUser}
-            loading={isLoading} 
-            />
+            loading={isLoading}
+          />
 
           <EditAvatarPopup
             isOpen={isEditAvatarPopupOpen}
             onClose={closeAllPopups}
             onUpdateAvatar={handleUpdateAvatar}
-            loading={isLoading} 
-            />
+            loading={isLoading}
+          />
 
           <AddPlacePopup
             isOpen={isAddPlacePopupOpen}
