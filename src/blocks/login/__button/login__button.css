@@ -7,14 +7,14 @@
    transition: all 0.1s linear;
 }
 
-.register__button:hover {
+.login__button:hover {
    cursor: pointer;
    opacity: 0.8;
 }
 
 @media all and (min-width: 240px) and (max-width: 639px) {
    
-   .register__button {
+   .login__button {
       font-size: 16px;
       line-height: 20px;
    }

@@ -1,5 +1,7 @@
 .header__button_close {
       width: 20px;
       height: 20px;
-      position: relative;
+      position: absolute;
+      top: 140px;
+      right: 0;
 }
