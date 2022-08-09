@@ -1,0 +1,16 @@
+.page__container {
+   max-width: 880px;
+   margin: 0 auto;
+}
+
+@media all and (min-width: 640px) and (max-width: 960px) {
+   .page__container {
+      max-width: 640px;
+   }
+}
+
+@media all and (min-width: 240px) and (max-width: 639px) {
+   .page__container {
+      max-width: 320px;
+   }
+}

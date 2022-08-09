@@ -1,0 +1,16 @@
+.card {
+    width: 282px;
+    min-height: 361px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+@media all and (min-width: 240px) and (max-width: 639px) {
+
+    .card {
+        justify-self: center;
+    }
+}

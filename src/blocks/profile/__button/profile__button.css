@@ -1,0 +1,33 @@
+.profile__button {
+   height: 24px;
+   width: 24px;
+   background-image: url("../../../images/EditButton.svg");
+   background-color: transparent;
+   background-position: center;
+   background-repeat: no-repeat;
+   box-sizing: border-box;
+   border: 1px solid #FFFFFF;
+   padding: 0;
+   transition: 0.3s;
+}
+
+.profile__button:hover {
+   cursor: pointer;
+   opacity: 0.8;
+}
+
+@media all and (min-width: 640px) and (max-width: 960px) {
+
+   .profile__button {
+      width: 22px;
+      height: 22px;
+   }
+}
+
+@media all and (min-width: 240px) and (max-width: 639px) {
+
+   .profile__button {
+      width: 18px;
+      height: 18px;
+   }
+}

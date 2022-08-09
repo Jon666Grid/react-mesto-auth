@@ -1,0 +1,11 @@
+.popup__label {
+    height: 70px;
+    display: block;
+}
+
+@media all and (min-width: 240px) and (max-width: 639px) {
+
+    .popup__label {
+        height: 80px;
+    }
+}

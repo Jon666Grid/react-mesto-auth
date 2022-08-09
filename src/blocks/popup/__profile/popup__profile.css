@@ -1,0 +1,15 @@
+.popup__profile {
+   width: 100%;
+   max-width: 330px;
+   font-size: 24px;
+   line-height: 1.2em;
+   margin: 0 0 38px;
+}
+
+@media all and (min-width: 240px) and (max-width: 639px) {
+
+   .popup__profile {
+      max-width: 238px;
+      font-size: 18px;
+   }
+}

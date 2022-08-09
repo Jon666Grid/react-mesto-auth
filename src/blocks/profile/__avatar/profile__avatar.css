@@ -1,0 +1,20 @@
+.profile__avatar {
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 0.3s ease-out;
+}
+
+.profile__avatar:hover {
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+@media all and (min-width: 240px) and (max-width: 639px) {
+
+    .profile__avatar {
+        display: block;
+        margin: 0 auto;
+    }
+}
