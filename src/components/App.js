@@ -84,7 +84,7 @@ function App() {
   function handleCardDeleteComf(card) {
     setIsLoading(true);
     api.deleteCard(card._id).then(() => {
-      setCards((item) => item.filter((c) => c._id !== card._id && c));
+      setCards((item) => item.filter((c) => c._id !== card._id));
       closeAllPopups();
     }).catch(err => console.log(err))
       .finally(() => { setIsLoading(false) });
