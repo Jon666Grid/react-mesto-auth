@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import ProtectedRoute from './ProtectedRoute';
 import api from '../utils/Api';
@@ -211,9 +211,7 @@ function App() {
             <Route path="/sign-in">
               <Login onLogin={onLogin} />
             </Route>
-            <Route>
-              {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
-            </Route>
+            
           </Switch>
 
           <Footer />
