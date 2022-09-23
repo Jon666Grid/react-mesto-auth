@@ -45,7 +45,8 @@ export default function Header(props) {
                   <span></span>
                </button>
             </div>
-            <nav className={`${isMenuOpen ? 'header__user-menu' : 'not-active'}`}>
+            <div className={`${isMenuOpen ? '' : 'not-active'}`}>
+            <nav className='header__user-menu'>
                <p className='header__email'>{props.email}</p>
                <button
                   onClick={() => {
@@ -53,7 +54,8 @@ export default function Header(props) {
                      handleClickMenu();
                   }}
                   className='header__link header__link_button'>Выйти</button>
-            </nav>
+                  </nav>
+            </div>
          </Route>
       </header>
    );
