@@ -70,7 +70,7 @@ function App() {
   useEffect(() => {
     if (isLoggedIn) {
       history.push('/');
-    }
+    } else {history.push('/sign-up');}
   }, [isLoggedIn,history]);
 
   function handleCardLike(card) {
